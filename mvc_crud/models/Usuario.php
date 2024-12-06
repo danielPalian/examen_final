@@ -20,8 +20,8 @@ class Usuario {
     public function crearUsuario($nombre_usuario, $contraseña, $id_perfil) {
         $query = "INSERT INTO " . $this->table_name . " (nombre_usuario, contraseña, id_perfil) VALUES (:nombre_usuario, :contraseña, :id_perfil)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(":nombre_usuario", $nombre_usuario);
         $hashed_password = password_hash(trim($contraseña), PASSWORD_BCRYPT);
+        $stmt->bindParam(":nombre_usuario", $nombre_usuario);
         $stmt->bindParam(":contraseña", $hashed_password);
         $stmt->bindParam(":id_perfil", $id_perfil);
         return $stmt->execute();
@@ -33,5 +33,4 @@ class Usuario {
         $stmt->bindParam(":id_usuario", $id_usuario);
         return $stmt->execute();
     }
-
 }

@@ -21,11 +21,11 @@
             <?php if (!empty($usuarios)): ?>
                 <?php foreach ($usuarios as $usuario): ?>
                     <tr>
-                        <td><?= $usuario['id_usuario'] ?></td>
-                        <td><?= $usuario['nombre_usuario'] ?></td>
-                        <td><?= $usuario['id_perfil'] ?></td>
+                        <td><?= htmlspecialchars($usuario['id_usuario']) ?></td>
+                        <td><?= htmlspecialchars($usuario['nombre_usuario']) ?></td>
+                        <td><?= htmlspecialchars($usuario['id_perfil']) ?></td>
                         <td>
-                            <a href="index.php?action=eliminar&id=<?= $usuario['id_usuario'] ?>">Eliminar</a>
+                            <a href="index.php?action=eliminar&id=<?= htmlspecialchars($usuario['id_usuario']) ?>">Eliminar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -38,4 +38,3 @@
     </table>
 </body>
 </html>
-
