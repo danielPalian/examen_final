@@ -1,7 +1,7 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "seguridad";
+    private $db_name = "tu_base_de_datos";
     private $username = "root";
     private $password = "";
     public $conn;
@@ -13,9 +13,10 @@ class Database {
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $exception) {
-            echo "Connection error: " . $exception->getMessage();
+            echo "Error de conexión: " . $exception->getMessage();
         }
 
         return $this->conn;
     }
 }
+
