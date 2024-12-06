@@ -1,0 +1,10 @@
+<?php
+require_once "controllers/UsuarioController.php";
+
+$controller = new UsuarioController();
+
+if (isset($_GET['action']) && $_GET['action'] === "eliminar" && isset($_GET['id'])) {
+    $controller->eliminar($_GET['id']);
+} else {
+    $controller->index();
+}
